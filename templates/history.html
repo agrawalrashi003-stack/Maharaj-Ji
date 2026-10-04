@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cooking History | Maharaj Ji</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        :root {
+
+            --bg: #EEF0EA;
+            --bg-deep: #E1E6DC;
+
+            --surface: #FDFEFB;
+
+            --ink-heading: #2C3832;
+            --ink-body: #3C473F;
+            --ink-soft: #7E8A80;
+
+            --accent: #4F7A5E;
+            --accent-soft: #DCEBDD;
+            --accent-deep: #355E47;
+
+            --line: #D6DBCF;
+            --steel: #C7CCC0;
+
+            --amber: #B8862E;
+            --amber-soft: #F3E7CE;
+
+            --white: #FFFFFF;
+        }
+
+
+        * {
+
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    var(--bg),
+                    var(--bg-deep)
+                );
+
+            color: var(--ink-body);
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+        }
+
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+
+        .navbar {
+
+            height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(
+                253,
+                254,
+                251,
+                0.88
+            );
+
+            border-bottom:
+                1px solid var(--line);
+
+            backdrop-filter: blur(12px);
+
+        }
+
+
+        .logo {
+
+            color: var(--accent-deep);
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: -0.5px;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+        }
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: var(--ink-body);
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color: var(--accent);
+
+        }
+
+
+        .nav-links .active {
+
+            color: var(--accent);
+
+        }
+
+
+        /* ========================================
+           PAGE
+        ======================================== */
+
+        .page {
+
+            width: min(
+                1100px,
+                90%
+            );
+
+            margin: 0 auto;
+
+            padding: 70px 0 100px;
+
+        }
+
+
+        .page-header {
+
+            margin-bottom: 42px;
+
+        }
+
+
+        .eyebrow {
+
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            padding: 7px 12px;
+
+            border-radius: 999px;
+
+            background: var(--accent-soft);
+
+            color: var(--accent-deep);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.4px;
+
+        }
+
+
+        .page-header h1 {
+
+            color: var(--ink-heading);
+
+            font-size: clamp(
+                36px,
+                5vw,
+                56px
+            );
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .page-header p {
+
+            max-width: 620px;
+
+            color: var(--ink-soft);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* ========================================
+           EMPTY STATE
+        ======================================== */
+
+        .empty-state {
+
+            padding: 70px 30px;
+
+            background: var(--surface);
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 24px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 35px
+                rgba(44, 56, 50, 0.06);
+
+        }
+
+
+        .empty-icon {
+
+            width: 68px;
+
+            height: 68px;
+
+            margin: 0 auto 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--accent-soft);
+
+            font-size: 30px;
+
+        }
+
+
+        .empty-state h2 {
+
+            margin-bottom: 10px;
+
+            color: var(--ink-heading);
+
+            font-size: 24px;
+
+        }
+
+
+        .empty-state p {
+
+            max-width: 480px;
+
+            margin: 0 auto 25px;
+
+            color: var(--ink-soft);
+
+            line-height: 1.6;
+
+        }
+
+
+        .start-button {
+
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border-radius: 12px;
+
+            background: var(--accent);
+
+            color: var(--white);
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .start-button:hover {
+
+            background: var(--accent-deep);
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* ========================================
+           HISTORY GRID
+        ======================================== */
+
+        .history-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        300px,
+                        1fr
+                    )
+                );
+
+            gap: 20px;
+
+        }
+
+
+        .meal-card {
+
+            position: relative;
+
+            padding: 26px;
+
+            background: var(--surface);
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(44, 56, 50, 0.05);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+
+        }
+
+
+        .meal-card:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 16px 38px
+                rgba(44, 56, 50, 0.09);
+
+        }
+
+
+        .meal-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .meal-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background: var(--accent-soft);
+
+            font-size: 25px;
+
+        }
+
+
+        .cooked-badge {
+
+            padding: 6px 10px;
+
+            border-radius: 999px;
+
+            background: var(--amber-soft);
+
+            color: var(--amber);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        .meal-card h2 {
+
+            color: var(--ink-heading);
+
+            font-size: 21px;
+
+            line-height: 1.3;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .meal-date {
+
+            color: var(--ink-soft);
+
+            font-size: 12px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .meal-reason {
+
+            padding: 14px;
+
+            margin-bottom: 20px;
+
+            background: var(--bg);
+
+            border-radius: 12px;
+
+            color: var(--ink-body);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .meal-meta {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+        }
+
+
+        .meta-item {
+
+            padding: 8px 11px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 10px;
+
+            background: var(--surface);
+
+            color: var(--ink-soft);
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+
+        @media (
+            max-width: 650px
+        ) {
+
+            .navbar {
+
+                padding: 0 5%;
+
+            }
+
+
+            .nav-links {
+
+                gap: 16px;
+
+            }
+
+
+            .nav-links a {
+
+                font-size: 13px;
+
+            }
+
+
+            .page {
+
+                width: 92%;
+
+                padding-top: 45px;
+
+            }
+
+
+            .page-header h1 {
+
+                letter-spacing: -1px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         NAVBAR
+    ======================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            Maharaj Ji
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+
+                Home
+
+            </a>
+
+
+            <a href="/chat">
+
+                Chat
+
+            </a>
+
+
+            <a
+                href="/history"
+                class="active"
+            >
+
+                History
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+
+    <main class="page">
+
+
+        <section class="page-header">
+
+            <span class="eyebrow">
+
+                YOUR FOOD MEMORY
+
+            </span>
+
+
+            <h1>
+
+                What you've cooked.
+
+            </h1>
+
+
+            <p>
+
+                A record of the meals you've actually
+                chosen to cook with Maharaj Ji.
+
+            </p>
+
+        </section>
+
+
+
+        {% if meals %}
+
+
+            <section class="history-grid">
+
+
+                {% for meal in meals %}
+
+
+                    <article class="meal-card">
+
+
+                        <div class="meal-top">
+
+
+                            <div class="meal-icon">
+
+                                🍛
+
+                            </div>
+
+
+                            <span class="cooked-badge">
+
+                                Cooked
+
+                            </span>
+
+
+                        </div>
+
+
+                        <h2>
+
+                            {{ meal.meal_name }}
+
+                        </h2>
+
+
+                        <div class="meal-date">
+
+                            {{ meal.created_at }}
+
+                        </div>
+
+
+                        {% if meal.meal_reason %}
+
+                            <div class="meal-reason">
+
+                                {{ meal.meal_reason }}
+
+                            </div>
+
+                        {% endif %}
+
+
+                        <div class="meal-meta">
+
+
+                            {% if meal.preparation_time %}
+
+                                <span class="meta-item">
+
+                                    ⏱
+                                    {{ meal.preparation_time }}
+                                    min
+
+                                </span>
+
+                            {% endif %}
+
+
+                            {% if meal.estimated_cost is not none %}
+
+                                <span class="meta-item">
+
+                                    ₹{{ meal.estimated_cost }}
+
+                                </span>
+
+                            {% endif %}
+
+
+                            {% if meal.rating %}
+
+                                <span class="meta-item">
+
+                                    ⭐ {{ meal.rating }}/5
+
+                                </span>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                    </article>
+
+
+                {% endfor %}
+
+
+            </section>
+
+
+        {% else %}
+
+
+            <section class="empty-state">
+
+
+                <div class="empty-icon">
+
+                    🍳
+
+                </div>
+
+
+                <h2>
+
+                    Your cooking story starts here.
+
+                </h2>
+
+
+                <p>
+
+                    Once you choose a meal and tell
+                    Maharaj Ji that you're going to cook it,
+                    it'll appear here.
+
+                </p>
+
+
+                <a
+                    href="/chat"
+                    class="start-button"
+                >
+
+                    Decide today's meal
+
+                </a>
+
+
+            </section>
+
+
+        {% endif %}
+
+
+    </main>
+
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Maharaj Ji — Your Personal Food Agent
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Maharaj<span>Ji</span>
+    </div>
+
+    <a
+        href="/chat"
+        class="nav-button"
+    >
+        Talk to Maharaj Ji
+    </a>
+
+</nav>
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<main class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            YOUR PERSONAL FOOD AGENT
+        </p>
+
+
+        <h1>
+            What should
+            <span>you eat today?</span>
+        </h1>
+
+
+        <p class="hero-description">
+
+            Tell Maharaj Ji how you're feeling,
+            what you're craving, what you have
+            at home, and how much effort you want
+            to put in.
+
+            <br>
+
+            He'll take it from there.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="/chat"
+                class="primary-button"
+            >
+                Talk to Maharaj Ji →
+            </a>
+
+
+            <a
+                href="/history"
+                class="secondary-button"
+            >
+                🍛 My Cooking History
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+</body>
+
+</html>

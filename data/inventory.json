@@ -1,0 +1,66 @@
+{
+    "paneer": {
+        "quantity": 250,
+        "unit": "g"
+    },
+    "onion": {
+        "quantity": 3,
+        "unit": "piece"
+    },
+    "tomato": {
+        "quantity": 4,
+        "unit": "piece"
+    },
+    "capsicum": {
+        "quantity": 2,
+        "unit": "piece"
+    },
+    "potato": {
+        "quantity": 4,
+        "unit": "piece"
+    },
+    "green_chilli": {
+        "quantity": 5,
+        "unit": "piece"
+    },
+    "ginger": {
+        "quantity": 1,
+        "unit": "piece"
+    },
+    "garlic": {
+        "quantity": 1,
+        "unit": "piece"
+    },
+    "oil": {
+        "quantity": 500,
+        "unit": "ml"
+    },
+    "salt": {
+        "quantity": 500,
+        "unit": "g"
+    },
+    "turmeric": {
+        "quantity": 100,
+        "unit": "g"
+    },
+    "red_chilli_powder": {
+        "quantity": 100,
+        "unit": "g"
+    },
+    "cumin": {
+        "quantity": 100,
+        "unit": "g"
+    },
+    "garam_masala": {
+        "quantity": 100,
+        "unit": "g"
+    },
+    "rice": {
+        "quantity": 1000,
+        "unit": "g"
+    },
+    "atta": {
+        "quantity": 1000,
+        "unit": "g"
+    }
+}

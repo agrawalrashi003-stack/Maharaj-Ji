@@ -1,0 +1,41 @@
+{
+    "name": "Rashi",
+
+    "dietary_preferences": {
+        "diet": "vegetarian",
+        "allergies": [],
+        "dietary_restrictions": []
+    },
+
+    "food_preferences": {
+        "favourite_cuisines": [
+            "Indian",
+            "North Indian"
+        ],
+        "likes": [
+            "paneer",
+            "spicy food",
+            "rice dishes"
+        ],
+        "dislikes": [],
+        "spice_level": "medium"
+    },
+
+    "meal_preferences": {
+        "typical_budget": 250,
+        "preferred_cooking_time": 30,
+        "cooking_preference": "cook_at_home"
+    },
+
+    "household": {
+        "number_of_people": 1
+    },
+
+    "routine": {
+        "usual_meals": {
+            "breakfast": "light",
+            "lunch": "regular",
+            "dinner": "home_cooked"
+        }
+    }
+}

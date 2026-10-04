@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Spicy Paneer Wrap",
+        "ingredients": [
+            "paneer",
+            "capsicum",
+            "onion",
+            "roti"
+        ],
+        "time": 25,
+        "difficulty": "easy"
+    },
+    {
+        "name": "Paneer Rice Bowl",
+        "ingredients": [
+            "paneer",
+            "rice",
+            "onion",
+            "tomato"
+        ],
+        "time": 30,
+        "difficulty": "easy"
+    },
+    {
+        "name": "Aloo Masala",
+        "ingredients": [
+            "potato",
+            "onion",
+            "tomato",
+            "green_chilli"
+        ],
+        "time": 25,
+        "difficulty": "easy"
+    }
+]

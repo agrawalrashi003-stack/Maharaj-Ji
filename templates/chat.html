@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Maharaj Ji — Your Personal Food Agent
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='chat.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Maharaj<span>Ji</span>
+    </div>
+
+
+    <a
+        href="/"
+        class="nav-button"
+    >
+
+        <span class="home-icon">
+            ⌂
+        </span>
+
+        Home
+
+    </a>
+
+</nav>
+
+
+
+<!-- ==================================================
+     MAIN PAGE
+================================================== -->
+
+<main class="chat-page">
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <section class="chat-header">
+
+
+        <p class="eyebrow">
+            MAHARAJ JI · PERSONAL FOOD AGENT
+        </p>
+
+
+        <h1>
+            What should we eat today?
+        </h1>
+
+
+        <p class="chat-description">
+
+            Tell Maharaj Ji what you're craving,
+            how you're feeling, or what you have
+            at home.
+
+        </p>
+
+
+        <!-- ==================================================
+             MY KITCHEN
+        ================================================== -->
+
+        <button
+            id="kitchen-button"
+            class="kitchen-button"
+            type="button"
+        >
+
+            <span class="kitchen-icon">
+                ♡
+            </span>
+
+            <span>
+                My Kitchen
+            </span>
+
+            <span class="kitchen-arrow">
+                →
+            </span>
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CHAT CARD
+    ================================================== -->
+
+    <section class="chat-card">
+
+
+        <!-- ==================================================
+             CONVERSATION
+        ================================================== -->
+
+        <div
+            id="chat-container"
+            class="chat-container"
+        >
+
+
+            <div class="message assistant-message">
+
+                <div class="assistant-icon">
+                    ◆
+                </div>
+
+
+                <div class="message-content">
+
+                    <strong>
+                        Namaste! I'm Maharaj Ji.
+                    </strong>
+
+                    <br>
+
+                    Say
+                    <strong>
+                        "Hi Maharaj Ji"
+                    </strong>
+
+                    when you need me — or just type below.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             TEXT INPUT
+        ================================================== -->
+
+        <section class="text-input-area">
+
+
+            <button
+                id="kitchen-shortcut"
+                class="kitchen-shortcut"
+                type="button"
+                aria-label="Open kitchen"
+            >
+                +
+            </button>
+
+
+            <input
+                id="message-input"
+                type="text"
+                placeholder="Or type what you want to eat..."
+                autocomplete="off"
+                aria-label="Type a message"
+            >
+
+
+            <button
+                id="send-button"
+                type="button"
+            >
+
+                <span>
+                    ➤
+                </span>
+
+                Send
+
+            </button>
+
+
+        </section>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         VOICE AGENT
+    ================================================== -->
+
+    <section class="voice-area">
+
+
+        <div
+            id="voice-orb"
+            class="voice-orb"
+            aria-label="Maharaj Ji voice control"
+        >
+
+            <div class="orb-inner">
+
+
+                <!-- ==================================================
+                     REAL MICROPHONE ICON
+                ================================================== -->
+
+                <svg
+                    class="mic-icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+
+                    <rect
+                        x="7"
+                        y="3"
+                        width="10"
+                        height="13"
+                        rx="5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    ></rect>
+
+
+                    <path
+                        d="M4 11a8 8 0 0 0 16 0"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    ></path>
+
+
+                    <path
+                        d="M12 19v3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    ></path>
+
+
+                    <path
+                        d="M8 22h8"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    ></path>
+
+                </svg>
+
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="voice-status"
+            class="voice-status"
+        >
+
+            Say
+            <strong>
+                "Hi Maharaj Ji"
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="chat-footer">
+
+        Maharaj Ji understands Hindi, English,
+        and everything in between.
+
+    </footer>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     KITCHEN MODAL
+================================================== -->
+
+<div
+    id="kitchen-modal"
+    class="kitchen-modal"
+    aria-hidden="true"
+>
+
+
+    <div class="kitchen-overlay"></div>
+
+
+    <div
+        class="kitchen-popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="kitchen-title"
+    >
+
+
+        <!-- ==================================================
+             POPUP HEADER
+        ================================================== -->
+
+        <div class="kitchen-popup-header">
+
+
+            <div>
+
+                <p class="kitchen-eyebrow">
+                    YOUR KITCHEN
+                </p>
+
+
+                <h2 id="kitchen-title">
+                    What do you have at home?
+                </h2>
+
+
+                <p>
+                    Select the ingredients you currently
+                    have and Maharaj Ji will use them
+                    when deciding what you can cook.
+                </p>
+
+            </div>
+
+
+            <button
+                id="close-kitchen"
+                class="close-kitchen"
+                type="button"
+                aria-label="Close kitchen"
+            >
+                ×
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             INGREDIENT LIST
+        ================================================== -->
+
+        <div
+            id="ingredient-list"
+            class="ingredient-list"
+        >
+
+            <div class="ingredient-empty">
+                Loading your kitchen...
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             POPUP ACTIONS
+        ================================================== -->
+
+        <div class="kitchen-actions">
+
+
+            <button
+                id="clear-kitchen"
+                class="kitchen-clear-button"
+                type="button"
+            >
+                Clear
+            </button>
+
+
+            <button
+                id="use-kitchen"
+                class="kitchen-use-button"
+                type="button"
+            >
+                Use Selected Ingredients →
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     KITCHEN FUNCTIONALITY
+================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const kitchenButton =
+            document.getElementById(
+                "kitchen-button"
+            );
+
+
+        const kitchenShortcut =
+            document.getElementById(
+                "kitchen-shortcut"
+            );
+
+
+        const kitchenModal =
+            document.getElementById(
+                "kitchen-modal"
+            );
+
+
+        const closeKitchen =
+            document.getElementById(
+                "close-kitchen"
+            );
+
+
+        const kitchenOverlay =
+            document.querySelector(
+                ".kitchen-overlay"
+            );
+
+
+        const ingredientList =
+            document.getElementById(
+                "ingredient-list"
+            );
+
+
+        const clearKitchen =
+            document.getElementById(
+                "clear-kitchen"
+            );
+
+
+        const useKitchen =
+            document.getElementById(
+                "use-kitchen"
+            );
+
+
+        const messageInput =
+            document.getElementById(
+                "message-input"
+            );
+
+
+
+        // ==================================================
+        // OPEN KITCHEN
+        // ==================================================
+
+        function openKitchen() {
+
+            kitchenModal.classList.add(
+                "open"
+            );
+
+            kitchenModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            loadIngredients();
+
+        }
+
+
+        kitchenButton.addEventListener(
+            "click",
+            openKitchen
+        );
+
+
+        kitchenShortcut.addEventListener(
+            "click",
+            openKitchen
+        );
+
+
+
+        // ==================================================
+        // CLOSE KITCHEN
+        // ==================================================
+
+        function closeKitchenModal() {
+
+            kitchenModal.classList.remove(
+                "open"
+            );
+
+            kitchenModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+        }
+
+
+        closeKitchen.addEventListener(
+            "click",
+            closeKitchenModal
+        );
+
+
+        kitchenOverlay.addEventListener(
+            "click",
+            closeKitchenModal
+        );
+
+
+
+        // ==================================================
+        // LOAD INGREDIENTS
+        // ==================================================
+// ==================================================
+// LOAD INGREDIENTS FROM SQLITE
+// ==================================================
+
+async function loadIngredients() {
+
+    ingredientList.innerHTML = `
+        <div class="ingredient-empty">
+            Loading your kitchen...
+        </div>
+    `;
+
+    try {
+
+        const response = await fetch(
+            "/api/inventory?user_id=1"
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Unable to load your kitchen."
+            );
+
+        }
+
+        const ingredients =
+            data.inventory || [];
+
+        ingredientList.innerHTML = "";
+
+        if (ingredients.length === 0) {
+
+            ingredientList.innerHTML = `
+                <div class="ingredient-empty">
+                    Your kitchen is empty.
+                </div>
+            `;
+
+            return;
+        }
+
+        ingredients.forEach(
+            function (item) {
+
+                const label =
+                    document.createElement(
+                        "label"
+                    );
+
+                label.className =
+                    "ingredient-item";
+
+                const checkbox =
+                    document.createElement(
+                        "input"
+                    );
+
+                checkbox.type = "checkbox";
+
+                checkbox.value =
+                    item.ingredient || "";
+
+                const check =
+                    document.createElement(
+                        "span"
+                    );
+
+                check.className =
+                    "ingredient-check";
+
+                const name =
+                    document.createElement(
+                        "span"
+                    );
+
+                name.className =
+                    "ingredient-name";
+
+                const quantity =
+                    item.quantity !== undefined &&
+                    item.quantity !== null
+                        ? item.quantity
+                        : "";
+
+                const unit =
+                    item.unit || "";
+
+                name.textContent =
+                    `${item.ingredient} — ${quantity} ${unit}`.trim();
+
+                label.appendChild(
+                    checkbox
+                );
+
+                label.appendChild(
+                    check
+                );
+
+                label.appendChild(
+                    name
+                );
+
+                ingredientList.appendChild(
+                    label
+                );
+            }
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Kitchen inventory error:",
+            error
+        );
+
+        ingredientList.innerHTML = `
+            <div class="ingredient-empty">
+                Could not load your kitchen.
+                Please try again.
+            </div>
+        `;
+    }
+}
+
+
+        // ==================================================
+        // CLEAR SELECTION
+        // ==================================================
+
+        clearKitchen.addEventListener(
+            "click",
+            function () {
+
+
+                ingredientList
+                    .querySelectorAll(
+                        "input[type='checkbox']"
+                    )
+                    .forEach(
+                        function (checkbox) {
+
+                            checkbox.checked =
+                                false;
+
+                        }
+                    );
+
+            }
+        );
+
+
+
+        // ==================================================
+        // USE SELECTED INGREDIENTS
+        // ==================================================
+
+        useKitchen.addEventListener(
+            "click",
+            function () {
+
+
+                const selected =
+                    Array.from(
+                        ingredientList
+                            .querySelectorAll(
+                                "input[type='checkbox']:checked"
+                            )
+                    ).map(
+                        function (checkbox) {
+
+                            return checkbox.value;
+
+                        }
+                    );
+
+
+                if (
+                    selected.length === 0
+                ) {
+
+                    closeKitchenModal();
+
+                    messageInput.focus();
+
+                    return;
+
+                }
+
+
+                messageInput.value =
+                    "I have " +
+                    selected.join(", ") +
+                    " at home. What can I cook?";
+
+
+                closeKitchenModal();
+
+                messageInput.focus();
+
+            }
+        );
+
+
+
+        // ==================================================
+        // ESCAPE KEY
+        // ==================================================
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    kitchenModal.classList.contains(
+                        "open"
+                    )
+                ) {
+
+                    closeKitchenModal();
+
+                }
+
+            }
+        );
+
+    }
+
+);
+
+</script>
+
+
+
+<!-- ==================================================
+     EXISTING MAHARAJ JI JAVASCRIPT
+================================================== -->
+
+<script
+    src="{{ url_for('static', filename='chat.js') }}"
+></script>
+
+
+</body>
+
+</html>
